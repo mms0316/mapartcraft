@@ -35,18 +35,17 @@ class MapartController extends Component {
     optionValue_cropImage_percent_x: 50,
     optionValue_cropImage_percent_y: 50,
     optionValue_showGridOverlay: false,
-    optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.VALLEY.uniqueId,
-    optionValue_whereSupportBlocks: WhereSupportBlocksModes.ALL_OPTIMIZED.uniqueId,
-    optionValue_supportBlock: "cobblestone",
+    optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.CLASSIC.uniqueId,
+    optionValue_supportBlock: "light_gray_wool",
     optionValue_transparency: false,
     optionValue_transparencyTolerance: 128,
     optionValue_mapdatFilenameUseId: true,
     optionValue_mapdatFilenameIdStart: 0,
     optionValue_betterColour: true,
-    optionValue_dithering: DitherMethods.FloydSteinberg.uniqueId,
+    optionValue_dithering: DitherMethods.Atkinson.uniqueId,
     optionValue_preprocessingEnabled: false,
-    preProcessingValue_brightness: 100,
-    preProcessingValue_contrast: 100,
+    preProcessingValue_brightness: 85,
+    preProcessingValue_contrast: 110,
     preProcessingValue_saturation: 100,
     preProcessingValue_backgroundColourSelect: BackgroundColourModes.OFF.uniqueId,
     preProcessingValue_backgroundColour: "#151515",
@@ -331,11 +330,6 @@ class MapartController extends Component {
     this.setState({ optionValue_dithering: ditheringValue });
   };
 
-  onOptionChange_WhereSupportBlocks = (e) => {
-    const newValue = parseInt(e.target.value);
-    this.setState({ optionValue_whereSupportBlocks: newValue });
-  };
-
   setOption_SupportBlock = (text) => {
     this.setState({ optionValue_supportBlock: text });
   };
@@ -542,7 +536,7 @@ class MapartController extends Component {
           });
       }
     }
-    return "https://rebane2001.com/mapartcraft/?preset=" + presetQueryString;
+    return "https://mms0316.github.io/mapartcraft/?preset=" + presetQueryString;
   };
 
   handleSharePreset = () => {
@@ -563,15 +557,6 @@ class MapartController extends Component {
   URLToPreset = (encodedPreset) => {
     const { onCorruptedPreset } = this.props;
     const { coloursJSON, optionValue_version } = this.state;
-    switch (encodedPreset) {
-      case "dQw4w9WgXcQ":
-        window.location.replace("https://www.youtube.com/watch?v=cZ5wOPinZd4");
-        return null;
-      case "mares":
-        document.body.style.backgroundSize="100%";
-        fetch("https://derpibooru.org/api/v1/json/search/images?q=scenery,score.gte:1000,safe&sf=random&per_page=1").then(req=>req.json()).then(derp=>document.body.style.backgroundImage=`url(${derp.images[0].representations.full})`);
-        return null;
-    }
     if (!/^[0-9a-zQ-ZA-P]*$/g.test(encodedPreset)) {
       onCorruptedPreset();
       return null;
@@ -636,7 +621,7 @@ class MapartController extends Component {
     });
   };
 
-  handleAddCustomBlock = (block_colourSetId, block_name, block_nbtTags, block_versions, block_needsSupport, block_flammable) => {
+  handleAddCustomBlock = (block_colourSetId, block_name, block_nbtTags, block_versions) => {
     const { getLocaleString } = this.props;
     // const {coloursJSON} = this.state;
     const block_name_trimmed = block_name.trim();
@@ -651,8 +636,6 @@ class MapartController extends Component {
     let blockToAdd = {
       displayName: block_name_trimmed,
       validVersions: {},
-      supportBlockMandatory: block_needsSupport,
-      flammable: block_flammable,
       presetIndex: "CUSTOM",
     };
     let addedFirstVersion = false;
@@ -750,7 +733,6 @@ class MapartController extends Component {
       optionValue_cropImage_percent_y,
       optionValue_showGridOverlay,
       optionValue_staircasing,
-      optionValue_whereSupportBlocks,
       optionValue_supportBlock,
       optionValue_transparency,
       optionValue_transparencyTolerance,
@@ -810,7 +792,6 @@ class MapartController extends Component {
             optionValue_cropImage_percent_y={optionValue_cropImage_percent_y}
             optionValue_showGridOverlay={optionValue_showGridOverlay}
             optionValue_staircasing={optionValue_staircasing}
-            optionValue_whereSupportBlocks={optionValue_whereSupportBlocks}
             optionValue_transparency={optionValue_transparency}
             optionValue_transparencyTolerance={optionValue_transparencyTolerance}
             optionValue_betterColour={optionValue_betterColour}
@@ -850,8 +831,6 @@ class MapartController extends Component {
               onOptionChange_showGridOverlay={this.onOptionChange_showGridOverlay}
               optionValue_staircasing={optionValue_staircasing}
               onOptionChange_staircasing={this.onOptionChange_staircasing}
-              optionValue_whereSupportBlocks={optionValue_whereSupportBlocks}
-              onOptionChange_WhereSupportBlocks={this.onOptionChange_WhereSupportBlocks}
               optionValue_supportBlock={optionValue_supportBlock}
               setOption_SupportBlock={this.setOption_SupportBlock}
               optionValue_transparency={optionValue_transparency}
@@ -894,7 +873,6 @@ class MapartController extends Component {
               optionValue_cropImage_percent_x={optionValue_cropImage_percent_x}
               optionValue_cropImage_percent_y={optionValue_cropImage_percent_y}
               optionValue_staircasing={optionValue_staircasing}
-              optionValue_whereSupportBlocks={optionValue_whereSupportBlocks}
               optionValue_supportBlock={optionValue_supportBlock}
               optionValue_transparency={optionValue_transparency}
               optionValue_transparencyTolerance={optionValue_transparencyTolerance}
