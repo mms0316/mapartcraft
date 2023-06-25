@@ -20,11 +20,8 @@
     "3": "Inspired by ",
     "4": "Redstonehelper's map art program",
     "5": ", with the goal to add much-requested features and removing the need to download a program.",
-    "6": "Feel free to message me on Discord ",
-    "7": " or Reddit ",
-    "8": ". Feature requests and bug reports go on ",
-    "9": "Note: MapartCraft has been updated to a shiny new version. If anything is broken, you can still use the ",
-    "10": "classic version"
+    "6": "This is a fork from rebane's ",
+    "7": " and as such there are different options here"
   },
   "BLOCK-SELECTION": {
     "TITLE": "Block selection",
@@ -48,7 +45,10 @@
       "NONE": "None",
       "EVERYTHING": "Everything",
       "CARPETS": "Carpets",
-      "GREYSCALE": "Greyscale"
+      "GREYSCALE": "Greyscale",
+      "DEFAULT": "Default",
+      "FAST": "Fast",
+      "WOOL": "Wool"
     },
     "UNSUPPORTED-PAST": "Unsupported past",
     "ADD-CUSTOM": {
