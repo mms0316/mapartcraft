@@ -216,7 +216,7 @@ class MapartController extends Component {
     const mode = parseInt(e.target.value);
     this.setState({ optionValue_modeNBTOrMapdat: mode });
     if (mode === MapModes.SCHEMATIC_NBT.uniqueId) {
-      this.setState({ optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.VALLEY.uniqueId });
+      this.setState({ optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.CLASSIC.uniqueId });
     } else {
       this.setState({ optionValue_staircasing: MapModes.MAPDAT.staircaseModes.ON_UNOBTAINABLE.uniqueId });
     }
@@ -372,7 +372,7 @@ class MapartController extends Component {
     this.setState({ optionValue_extras_moreStaircasingOptions: !optionValue_extras_moreStaircasingOptions });
     if (optionValue_extras_moreStaircasingOptions) {
       if (optionValue_modeNBTOrMapdat === MapModes.SCHEMATIC_NBT.uniqueId) {
-        this.setState({ optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.VALLEY.uniqueId });
+        this.setState({ optionValue_staircasing: MapModes.SCHEMATIC_NBT.staircaseModes.CLASSIC.uniqueId });
       } else {
         this.setState({ optionValue_staircasing: MapModes.MAPDAT.staircaseModes.ON_UNOBTAINABLE.uniqueId });
       }
