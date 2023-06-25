@@ -3351,7 +3351,7 @@
                         "NBTArgs": {}
                     }
                 },
-                "supportBlockMandatory": false,
+                "supportBlockMandatory": true,
                 "flammable": false,
                 "presetIndex": 13
             }
@@ -6844,7 +6844,7 @@
                         "NBTArgs": {}
                     }
                 },
-                "supportBlockMandatory": false,
+                "supportBlockMandatory": true,
                 "flammable": false,
                 "presetIndex": 6
             }
