@@ -9,8 +9,6 @@ class BlockSelectionAddCustom extends Component {
     block_name: "",
     block_nbtTags: [["", ""]],
     block_colourSetId: null,
-    block_needsSupport: false,
-    block_flammable: false,
     block_versions: {},
   };
 
@@ -112,8 +110,6 @@ class BlockSelectionAddCustom extends Component {
       block_name: versionToLoad_nbtData.NBTName,
       block_nbtTags: blockToLoad_nbtTags,
       block_colourSetId: colourSetId,
-      block_needsSupport: blockToLoad.supportBlockMandatory,
-      block_flammable: blockToLoad.flammable,
       block_versions: blockToLoad_versions,
     });
   }
@@ -144,22 +140,6 @@ class BlockSelectionAddCustom extends Component {
     this.setState({ block_colourSetId: e.target.value });
   };
 
-  onSettingChange_block_needsSupport = () => {
-    this.setState((currentState) => {
-      return {
-        block_needsSupport: !currentState.block_needsSupport,
-      };
-    });
-  };
-
-  onSettingChange_block_flammable = () => {
-    this.setState((currentState) => {
-      return {
-        block_flammable: !currentState.block_flammable,
-      };
-    });
-  };
-
   onSettingChange_block_versions = (versionToToggle) => {
     let block_versions_new = { ...this.state.block_versions };
     block_versions_new[versionToToggle] = !block_versions_new[versionToToggle];
@@ -168,7 +148,7 @@ class BlockSelectionAddCustom extends Component {
 
   render() {
     const { getLocaleString, coloursJSON, onAddCustomBlock, onDeleteCustomBlock } = this.props;
-    const { block_name, block_nbtTags, block_colourSetId, block_needsSupport, block_flammable, block_versions } = this.state;
+    const { block_name, block_nbtTags, block_colourSetId, block_versions } = this.state;
     const examples = (
       <details open={false}>
         <summary>{getLocaleString("BLOCK-SELECTION/ADD-CUSTOM/EXAMPLES")}</summary>
@@ -318,32 +298,6 @@ class BlockSelectionAddCustom extends Component {
         </td>
       </tr>
     );
-    const setting_customBlock_needsSupport = (
-      <tr>
-        <th>
-          <b>
-            {getLocaleString("BLOCK-SELECTION/ADD-CUSTOM/NEEDS-SUPPORT")}
-            {":"}
-          </b>{" "}
-        </th>
-        <td>
-          <input type="checkbox" checked={block_needsSupport} onChange={this.onSettingChange_block_needsSupport} />
-        </td>
-      </tr>
-    );
-    const setting_customBlock_flammable = (
-      <tr>
-        <th>
-          <b>
-            {getLocaleString("BLOCK-SELECTION/ADD-CUSTOM/FLAMMABLE")}
-            {":"}
-          </b>{" "}
-        </th>
-        <td>
-          <input type="checkbox" checked={block_flammable} onChange={this.onSettingChange_block_flammable} />
-        </td>
-      </tr>
-    );
     const setting_customBlock_versions = (
       <tr>
         <th>
@@ -367,7 +321,7 @@ class BlockSelectionAddCustom extends Component {
         <th colSpan="2">
           <button
             style={{ width: "100%" }}
-            onClick={() => onAddCustomBlock(block_colourSetId, block_name, block_nbtTags, block_versions, block_needsSupport, block_flammable)}
+            onClick={() => onAddCustomBlock(block_colourSetId, block_name, block_nbtTags, block_versions)}
           >
             {getLocaleString("BLOCK-SELECTION/ADD-CUSTOM/ADD")}
           </button>
@@ -392,8 +346,6 @@ class BlockSelectionAddCustom extends Component {
             {setting_customBlock_name}
             {setting_customBlock_nbtTags}
             {setting_customBlock_colourSetId}
-            {setting_customBlock_needsSupport}
-            {setting_customBlock_flammable}
             {setting_customBlock_versions}
             {customBlock_submit}
             {customBlock_delete}

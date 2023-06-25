@@ -137,12 +137,6 @@ function FAQ(props) {
         usually have less artifacts and gives the image an unique style. It is usually recommended to disable dithering for flat-colored artwork.
       </p>
 
-      <b>Add blocks under/Block to add?</b>
-      <p>
-        Here you can pick the block that will be put under either important blocks (eg carpets, sand, pressure plates) or all blocks. This block will also be
-        used for the noobline, which cannot be disabled.
-      </p>
-
       <b>Presets?</b>
       <p>
         You can use presets to save and load block configurations. Pick your blocks and click "Save" to save them as a preset, pick a preset to load it and

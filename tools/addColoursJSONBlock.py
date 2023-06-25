@@ -70,15 +70,11 @@ def addBlock(coloursJSON,
     blockId,
     displayName,
     versionsWithArgs,
-    referenceVersions,
-    supportBlockMandatory,
-    flammable):
+    referenceVersions):
     logging.debug("Adding block")
     newBlockEntry = {
         "displayName": displayName,
         "validVersions": {},
-        "supportBlockMandatory": supportBlockMandatory,
-        "flammable": flammable,
         "presetIndex": None
     }
 
@@ -208,16 +204,6 @@ if __name__ == "__main__":
     parser.add_argument("displayName",
         help = "Block name to show to the user",
         metavar = ("DISPLAYNAME",))
-    parser.add_argument("-s",
-        help = "Flag for if the block requires support eg because of gravity or if it is a slab, default false",
-        action = "store_true",
-        dest = "supportBlockMandatory",
-        default = False)
-    parser.add_argument("-f",
-        help = "Flag for if the block is flammable, default false",
-        action = "store_true",
-        dest = "flammable",
-        default = False)
     # parser.add_argument("-p",
     #     help = "Manually set the preset-index of the block. Recommended to NOT do this",
     #     metavar = ("PRESETINDEX",),
@@ -266,9 +252,7 @@ if __name__ == "__main__":
         blockId_processed,
         args.displayName,
         versionsWithArgs_processed,
-        args.referenceVersions,
-        args.supportBlockMandatory,
-        args.flammable)
+        args.referenceVersions)
 
     logging.debug("Saving coloursJSON to {}".format(filePath_coloursJSON))
     JSONIO.saveToFilename(filePath_coloursJSON, coloursJSON, indent = 4)

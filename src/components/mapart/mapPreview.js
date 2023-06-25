@@ -7,7 +7,6 @@ import BackgroundColourModes from "./json/backgroundColourModes.json";
 import CropModes from "./json/cropModes.json";
 import DitherMethods from "./json/ditherMethods.json";
 import MapModes from "./json/mapModes.json";
-import WhereSupportBlocksModes from "./json/whereSupportBlocksModes.json";
 
 import IMG_Null from "../../images/null.png";
 import IMG_Textures from "../../images/textures.png";
@@ -71,7 +70,6 @@ class MapPreview extends Component {
       prevProps.optionValue_cropImage_percent_x === newProps.optionValue_cropImage_percent_x,
       prevProps.optionValue_cropImage_percent_y === newProps.optionValue_cropImage_percent_y,
       prevProps.optionValue_staircasing === newProps.optionValue_staircasing,
-      prevProps.optionValue_whereSupportBlocks === newProps.optionValue_whereSupportBlocks,
       prevProps.optionValue_transparency === newProps.optionValue_transparency,
       prevProps.optionValue_transparencyTolerance === newProps.optionValue_transparencyTolerance,
       prevProps.optionValue_betterColour === newProps.optionValue_betterColour,
@@ -268,7 +266,6 @@ class MapPreview extends Component {
       optionValue_mapSize_x,
       optionValue_mapSize_y,
       optionValue_staircasing,
-      optionValue_whereSupportBlocks,
       optionValue_transparency,
       optionValue_transparencyTolerance,
       optionValue_betterColour,
@@ -302,7 +299,6 @@ class MapPreview extends Component {
       body: {
         coloursJSON: coloursJSON,
         MapModes: MapModes,
-        WhereSupportBlocksModes: WhereSupportBlocksModes,
         DitherMethods: DitherMethods,
         canvasImageData: canvasImageData,
         selectedBlocks: selectedBlocks,
@@ -310,7 +306,6 @@ class MapPreview extends Component {
         optionValue_mapSize_x: optionValue_mapSize_x,
         optionValue_mapSize_y: optionValue_mapSize_y,
         optionValue_staircasing: optionValue_staircasing,
-        optionValue_whereSupportBlocks: optionValue_whereSupportBlocks,
         optionValue_transparency: optionValue_transparency,
         optionValue_transparencyTolerance: optionValue_transparencyTolerance,
         optionValue_betterColour: optionValue_betterColour,

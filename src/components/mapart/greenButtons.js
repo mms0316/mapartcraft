@@ -5,7 +5,6 @@ import JSZip from "jszip";
 import Tooltip from "../tooltip";
 
 import MapModes from "./json/mapModes.json";
-import WhereSupportBlocksModes from "./json/whereSupportBlocksModes.json";
 
 import NBTWorker from "./workers/nbt.jsworker";
 
@@ -40,7 +39,6 @@ class GreenButtons extends Component {
       optionValue_mapSize_x,
       optionValue_mapSize_y,
       optionValue_staircasing,
-      optionValue_whereSupportBlocks,
       optionValue_supportBlock,
       optionValue_mapdatFilenameUseId,
       optionValue_mapdatFilenameIdStart,
@@ -149,10 +147,8 @@ class GreenButtons extends Component {
       body: {
         coloursJSON: coloursJSON,
         MapModes: MapModes,
-        WhereSupportBlocksModes: WhereSupportBlocksModes,
         optionValue_version: optionValue_version,
         optionValue_staircasing: optionValue_staircasing,
-        optionValue_whereSupportBlocks: optionValue_whereSupportBlocks,
         optionValue_supportBlock: optionValue_supportBlock,
         pixelsData: currentMaterialsData.pixelsData,
         maps: currentMaterialsData.maps,
@@ -193,7 +189,6 @@ class GreenButtons extends Component {
       optionValue_cropImage_percent_x,
       optionValue_cropImage_percent_y,
       optionValue_staircasing,
-      optionValue_whereSupportBlocks,
       optionValue_supportBlock,
       optionValue_transparency,
       optionValue_transparencyTolerance,
@@ -220,7 +215,6 @@ class GreenButtons extends Component {
       prevProps.optionValue_cropImage_percent_x !== optionValue_cropImage_percent_x,
       prevProps.optionValue_cropImage_percent_y !== optionValue_cropImage_percent_y,
       prevProps.optionValue_staircasing !== optionValue_staircasing,
-      prevProps.optionValue_whereSupportBlocks !== optionValue_whereSupportBlocks,
       prevProps.optionValue_supportBlock !== optionValue_supportBlock,
       prevProps.optionValue_transparency !== optionValue_transparency,
       prevProps.optionValue_transparencyTolerance !== optionValue_transparencyTolerance,

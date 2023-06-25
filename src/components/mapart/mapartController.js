@@ -16,7 +16,6 @@ import DefaultPresets from "./json/defaultPresets.json";
 import DitherMethods from "./json/ditherMethods.json";
 import MapModes from "./json/mapModes.json";
 import SupportedVersions from "./json/supportedVersions.json";
-import WhereSupportBlocksModes from "./json/whereSupportBlocksModes.json";
 
 import IMG_Upload from "../../images/upload.png";
 
