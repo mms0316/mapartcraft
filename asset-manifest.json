@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mapartcraft/static/css/main.36909d2a.chunk.css",
-    "main.js": "/mapartcraft/static/js/main.bebf650f.chunk.js",
-    "main.js.map": "/mapartcraft/static/js/main.bebf650f.chunk.js.map",
+    "main.js": "/mapartcraft/static/js/main.d065b1fb.chunk.js",
+    "main.js.map": "/mapartcraft/static/js/main.d065b1fb.chunk.js.map",
     "runtime-main.js": "/mapartcraft/static/js/runtime-main.ace845ed.js",
     "runtime-main.js.map": "/mapartcraft/static/js/runtime-main.ace845ed.js.map",
     "static/js/2.5b7a3643.chunk.js": "/mapartcraft/static/js/2.5b7a3643.chunk.js",
@@ -28,13 +28,13 @@
     "static/media/flag_pop.4947b0a4.svg": "/mapartcraft/static/media/flag_pop.4947b0a4.svg",
     "static/media/index.css": "/mapartcraft/static/media/kenpixel_mini_square.049f97fd.woff",
     "static/media/mapCanvas.ca17b279.jsworker": "/mapartcraft/static/media/mapCanvas.ca17b279.jsworker",
-    "static/media/nbt.67c9ec50.jsworker": "/mapartcraft/static/media/nbt.67c9ec50.jsworker",
+    "static/media/nbt.b6be55d0.jsworker": "/mapartcraft/static/media/nbt.b6be55d0.jsworker",
     "static/media/textures.01da0dbb.png": "/mapartcraft/static/media/textures.01da0dbb.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ace845ed.js",
     "static/js/2.5b7a3643.chunk.js",
     "static/css/main.36909d2a.chunk.css",
-    "static/js/main.bebf650f.chunk.js"
+    "static/js/main.d065b1fb.chunk.js"
   ]
 }
