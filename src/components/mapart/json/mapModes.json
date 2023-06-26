@@ -19,7 +19,7 @@
         "uniqueId": 2,
         "localeKey": "MAP-SETTINGS/3D/VALLEY",
         "toneKeys": ["dark", "normal", "light"],
-        "extra": false
+        "extra": true
       },
       "FULL_DARK": {
         "uniqueId": 3,
