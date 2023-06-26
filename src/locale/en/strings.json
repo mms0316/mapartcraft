@@ -46,9 +46,10 @@
       "EVERYTHING": "Everything",
       "CARPETS": "Carpets",
       "GREYSCALE": "Greyscale",
-      "DEFAULT": "Default",
-      "FAST": "Fast",
-      "WOOL": "Wool"
+      "BALANCED_1_19": "1.19 Balanced (39 mats)",
+      "FAST_1_19": "1.19 Fast (27 mats)",
+      "BALANCED_1_20": "1.20 Balanced (40 mats)",
+      "FAST_1_20": "1.20 Fast (27 mats)"
     },
     "UNSUPPORTED-PAST": "Unsupported past",
     "ADD-CUSTOM": {

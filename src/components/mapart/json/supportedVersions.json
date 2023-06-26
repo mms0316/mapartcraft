@@ -1,7 +1,15 @@
 {
+  "1_19 fast": {
+    "MCVersion": "1.19 fast",
+    "NBTVersion": 3105
+  },
   "1_19": {
     "MCVersion": "1.19",
     "NBTVersion": 3105
+  },
+  "1_20 fast": {
+    "MCVersion": "1.20 fast",
+    "NBTVersion": 3463
   },
   "1_20": {
     "MCVersion": "1.20",
