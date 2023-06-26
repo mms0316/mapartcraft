@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mapartcraft/static/css/main.36909d2a.chunk.css",
-    "main.js": "/mapartcraft/static/js/main.13a9dd32.chunk.js",
-    "main.js.map": "/mapartcraft/static/js/main.13a9dd32.chunk.js.map",
+    "main.js": "/mapartcraft/static/js/main.bebf650f.chunk.js",
+    "main.js.map": "/mapartcraft/static/js/main.bebf650f.chunk.js.map",
     "runtime-main.js": "/mapartcraft/static/js/runtime-main.ace845ed.js",
     "runtime-main.js.map": "/mapartcraft/static/js/runtime-main.ace845ed.js.map",
-    "static/js/2.25674005.chunk.js": "/mapartcraft/static/js/2.25674005.chunk.js",
-    "static/js/2.25674005.chunk.js.map": "/mapartcraft/static/js/2.25674005.chunk.js.map",
+    "static/js/2.5b7a3643.chunk.js": "/mapartcraft/static/js/2.5b7a3643.chunk.js",
+    "static/js/2.5b7a3643.chunk.js.map": "/mapartcraft/static/js/2.5b7a3643.chunk.js.map",
     "index.html": "/mapartcraft/index.html",
     "static/css/main.36909d2a.chunk.css.map": "/mapartcraft/static/css/main.36909d2a.chunk.css.map",
-    "static/js/2.25674005.chunk.js.LICENSE.txt": "/mapartcraft/static/js/2.25674005.chunk.js.LICENSE.txt",
+    "static/js/2.5b7a3643.chunk.js.LICENSE.txt": "/mapartcraft/static/js/2.5b7a3643.chunk.js.LICENSE.txt",
     "static/media/classicVsValley.fb0924c8.png": "/mapartcraft/static/media/classicVsValley.fb0924c8.png",
     "static/media/flag.096c0012.svg": "/mapartcraft/static/media/flag.096c0012.svg",
     "static/media/flag.10f89117.svg": "/mapartcraft/static/media/flag.10f89117.svg",
@@ -27,14 +27,14 @@
     "static/media/flag.f5d8ab3c.svg": "/mapartcraft/static/media/flag.f5d8ab3c.svg",
     "static/media/flag_pop.4947b0a4.svg": "/mapartcraft/static/media/flag_pop.4947b0a4.svg",
     "static/media/index.css": "/mapartcraft/static/media/kenpixel_mini_square.049f97fd.woff",
-    "static/media/mapCanvas.15148a70.jsworker": "/mapartcraft/static/media/mapCanvas.15148a70.jsworker",
-    "static/media/nbt.d393b228.jsworker": "/mapartcraft/static/media/nbt.d393b228.jsworker",
-    "static/media/textures.1fb60425.png": "/mapartcraft/static/media/textures.1fb60425.png"
+    "static/media/mapCanvas.ca17b279.jsworker": "/mapartcraft/static/media/mapCanvas.ca17b279.jsworker",
+    "static/media/nbt.67c9ec50.jsworker": "/mapartcraft/static/media/nbt.67c9ec50.jsworker",
+    "static/media/textures.01da0dbb.png": "/mapartcraft/static/media/textures.01da0dbb.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ace845ed.js",
-    "static/js/2.25674005.chunk.js",
+    "static/js/2.5b7a3643.chunk.js",
     "static/css/main.36909d2a.chunk.css",
-    "static/js/main.13a9dd32.chunk.js"
+    "static/js/main.bebf650f.chunk.js"
   ]
 }
