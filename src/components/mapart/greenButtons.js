@@ -334,7 +334,7 @@ class GreenButtons extends Component {
       <React.Fragment>
         <Tooltip tooltipText={getLocaleString("DONATE/TITLE-TT")}>
           <div className="greenButton">
-            <a style={{ textDecoration: "none" }} href="./supporters">
+            <a style={{ textDecoration: "none" }} href="https://rebane2001.com/mapartcraft/supporters" target="_blank" rel="noopener noreferrer">
               <span className="greenButton_text_dummy" style={{ backgroundColor: "#688e6b", color: "#333333" }}>
                 {getLocaleString("DONATE/TITLE")}
               </span>
