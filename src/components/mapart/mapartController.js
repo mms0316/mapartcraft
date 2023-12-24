@@ -930,6 +930,7 @@ class MapartController extends Component {
               optionValue_version={optionValue_version}
               optionValue_supportBlock={optionValue_supportBlock}
               currentMaterialsData={currentMaterialsData}
+              onChangeColourSetBlock={this.handleChangeColourSetBlock}
             />
           ) : null}
         </div>
