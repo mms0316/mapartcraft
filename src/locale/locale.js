@@ -41,6 +41,12 @@ import Strings_zh_Hant from "./zh-Hant/strings.json";
 import Flag_pl from "./pl/flag.svg";
 import Strings_pl from "./pl/strings.json";
 
+import Flag_pt_Br from "./pt-Br/flag.svg";
+import Strings_pt_Br from "./pt-Br/strings.json";
+
+import Flag_ja from "./ja/flag.svg";
+import Strings_ja from "./ja/strings.json";
+
 const Locale = {
   en: { strings: Strings_en, flag: Flag_en },
   ua: { strings: Strings_ua, flag: Flag_ua },
@@ -55,7 +61,9 @@ const Locale = {
   es: { strings: Strings_es, flag: Flag_es },
   "zh-Hans": { strings: Strings_zh_Hans, flag: Flag_zh_Hans },
   "zh-Hant": { strings: Strings_zh_Hant, flag: Flag_zh_Hant },
+  ja: { strings: Strings_ja, flag: Flag_ja },
   eo: { strings: Strings_eo, flag: Flag_eo },
+  "pt-Br": { strings: Strings_pt_Br, flag: Flag_pt_Br },
 };
 
 export default Locale;

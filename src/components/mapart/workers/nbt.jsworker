@@ -16,7 +16,7 @@ var progressReportHead;
 /*
   A mapping from type names to NBT type numbers.
   This is NOT just an enum, these values have to stay as they are
-  https://minecraft.fandom.com/wiki/NBT_format#TAG_definition
+  https://minecraft.wiki/w/NBT_format#TAG_definition
 */
 const TagTypes = {
   end: 0,
@@ -549,7 +549,7 @@ class Map_Mapdat {
             scale: { type: TagTypes.byte, value: 0 },
             dimension: {
               type: dataVersion >= 2566 ? TagTypes.string : TagTypes.byte,
-              value: dataVersion >= 2566 ? "minecraft:mapartcraft" : dataVersion > 1343 ? 0 : -128,
+              value: dataVersion >= 2566 ? "minecraft:overworld" : dataVersion > 1343 ? 0 : -128,
             },
             unlimitedTracking: { type: TagTypes.byte, value: 0 },
             trackingPosition: { type: TagTypes.byte, value: 0 },
@@ -561,6 +561,7 @@ class Map_Mapdat {
             colors: { type: TagTypes.byteArray, value: new Uint8Array(16384) },
           },
         },
+        DataVersion: { type: TagTypes.int, value: dataVersion },
       },
     };
   }
