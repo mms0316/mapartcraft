@@ -42,6 +42,9 @@ class MapartController extends Component {
     optionValue_mapdatFilenameIdStart: 0,
     optionValue_betterColour: true,
     optionValue_dithering: DitherMethods.Atkinson.uniqueId,
+    optionValue_dithering_propagation_red: 100,
+    optionValue_dithering_propagation_green: 100,
+    optionValue_dithering_propagation_blue: 100,
     optionValue_preprocessingEnabled: false,
     preProcessingValue_brightness: 85,
     preProcessingValue_contrast: 110,
@@ -327,6 +330,18 @@ class MapartController extends Component {
   onOptionChange_dithering = (e) => {
     const ditheringValue = parseInt(e.target.value);
     this.setState({ optionValue_dithering: ditheringValue });
+  };
+
+  onOptionChange_dithering_propagation_red = (value) => {
+    this.setState({ optionValue_dithering_propagation_red: value });
+  };
+
+  onOptionChange_dithering_propagation_green = (value) => {
+    this.setState({ optionValue_dithering_propagation_green: value });
+  };
+
+  onOptionChange_dithering_propagation_blue = (value) => {
+    this.setState({ optionValue_dithering_propagation_blue: value });
   };
 
   setOption_SupportBlock = (text) => {
@@ -739,6 +754,9 @@ class MapartController extends Component {
       optionValue_mapdatFilenameIdStart,
       optionValue_betterColour,
       optionValue_dithering,
+      optionValue_dithering_propagation_red,
+      optionValue_dithering_propagation_green,
+      optionValue_dithering_propagation_blue,
       optionValue_preprocessingEnabled,
       preProcessingValue_brightness,
       preProcessingValue_contrast,
@@ -795,6 +813,9 @@ class MapartController extends Component {
             optionValue_transparencyTolerance={optionValue_transparencyTolerance}
             optionValue_betterColour={optionValue_betterColour}
             optionValue_dithering={optionValue_dithering}
+            optionValue_dithering_propagation_red={optionValue_dithering_propagation_red}
+            optionValue_dithering_propagation_green={optionValue_dithering_propagation_green}
+            optionValue_dithering_propagation_blue={optionValue_dithering_propagation_blue}
             optionValue_preprocessingEnabled={optionValue_preprocessingEnabled}
             preProcessingValue_brightness={preProcessingValue_brightness}
             preProcessingValue_contrast={preProcessingValue_contrast}
@@ -844,6 +865,12 @@ class MapartController extends Component {
               onOptionChange_BetterColour={this.onOptionChange_BetterColour}
               optionValue_dithering={optionValue_dithering}
               onOptionChange_dithering={this.onOptionChange_dithering}
+              optionValue_dithering_propagation_red={optionValue_dithering_propagation_red}
+              onOptionChange_dithering_propagation_red={this.onOptionChange_dithering_propagation_red}
+              optionValue_dithering_propagation_green={optionValue_dithering_propagation_green}
+              onOptionChange_dithering_propagation_green={this.onOptionChange_dithering_propagation_green}
+              optionValue_dithering_propagation_blue={optionValue_dithering_propagation_blue}
+              onOptionChange_dithering_propagation_blue={this.onOptionChange_dithering_propagation_blue}
               optionValue_preprocessingEnabled={optionValue_preprocessingEnabled}
               onOptionChange_PreProcessingEnabled={this.onOptionChange_PreProcessingEnabled}
               preProcessingValue_brightness={preProcessingValue_brightness}
@@ -879,6 +906,9 @@ class MapartController extends Component {
               optionValue_mapdatFilenameIdStart={optionValue_mapdatFilenameIdStart}
               optionValue_betterColour={optionValue_betterColour}
               optionValue_dithering={optionValue_dithering}
+              optionValue_dithering_propagation_red={optionValue_dithering_propagation_red}
+              optionValue_dithering_propagation_green={optionValue_dithering_propagation_green}
+              optionValue_dithering_propagation_blue={optionValue_dithering_propagation_blue}
               optionValue_preprocessingEnabled={optionValue_preprocessingEnabled}
               preProcessingValue_brightness={preProcessingValue_brightness}
               preProcessingValue_contrast={preProcessingValue_contrast}
