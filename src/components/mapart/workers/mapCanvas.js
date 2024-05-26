@@ -1,3 +1,8 @@
+// eslint-disable-next-line import/no-anonymous-default-export
+// eslint-disable-next-line no-restricted-globals
+
+export default function MapWorker (args) {
+
 var coloursJSON;
 var MapModes;
 var DitherMethods;
@@ -446,4 +451,6 @@ onmessage = (e) => {
       currentSelectedBlocks: selectedBlocks,
     },
   });
+};
+
 };
