@@ -5,6 +5,7 @@ import WorkerBuilder from './workers/worker-builder';
 import MapCanvasWorker from "./workers/mapCanvas";
 
 import BackgroundColourModes from "./json/backgroundColourModes.json";
+import ColourMethods from "./json/colourMethods.json";
 import CropModes from "./json/cropModes.json";
 import DitherMethods from "./json/ditherMethods.json";
 import MapModes from "./json/mapModes.json";
@@ -306,6 +307,7 @@ class MapPreview extends Component {
       body: {
         coloursJSON: coloursJSON,
         MapModes: MapModes,
+        ColourMethods: ColourMethods,
         DitherMethods: DitherMethods,
         canvasImageData: canvasImageData,
         selectedBlocks: selectedBlocks,
