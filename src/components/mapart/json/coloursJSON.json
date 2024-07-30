@@ -1763,18 +1763,6 @@
                     "1.20": "&1.19"
                 },
                 "presetIndex": 0
-            },
-            "1": {
-                "displayName": "Stripped Cherry Log (horizontal)",
-                "validVersions": {
-                    "1.20": {
-                        "NBTName": "stripped_cherry_log",
-                        "NBTArgs": {
-                            "axis": "x"
-                        }
-                    }
-                },
-                "presetIndex": 1
             }
         },
         "mapdatId": 42,
