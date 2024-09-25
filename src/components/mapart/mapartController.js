@@ -26,6 +26,7 @@ class MapartController extends Component {
   state = {
     coloursJSON: null,
     selectedBlocks: {},
+    disabledTones: {},
     optionValue_version: Object.values(SupportedVersions)[Object.keys(SupportedVersions).length - 1], // default to the latest version supported
     optionValue_modeNBTOrMapdat: MapModes.SCHEMATIC_NBT.uniqueId,
     optionValue_mapSize_x: 1,
@@ -91,6 +92,7 @@ class MapartController extends Component {
 
     for (const colourSetId of Object.keys(this.state.coloursJSON)) {
       this.state.selectedBlocks[colourSetId] = "-1";
+      this.state.disabledTones[colourSetId] = new Set();
     }
 
     const cookieMCVersion = CookieManager.touchCookie("mapartcraft_mcversion", Object.values(SupportedVersions)[Object.keys(SupportedVersions).length - 1].MCVersion);
@@ -213,6 +215,21 @@ class MapartController extends Component {
     }
     this.setState({
       selectedBlocks,
+    });
+  };
+
+  handleToggleColourTone = (colourSetId, tone) => {
+    let disabledTones = { ...this.state.disabledTones };
+
+    const set = disabledTones[colourSetId];
+
+    if (set.has(tone))
+      set.delete(tone);
+    else
+      set.add(tone);
+
+    this.setState({
+      disabledTones,
     });
   };
 
@@ -737,6 +754,7 @@ class MapartController extends Component {
     const {
       coloursJSON,
       selectedBlocks,
+      disabledTones,
       optionValue_version,
       optionValue_modeNBTOrMapdat,
       optionValue_mapSize_x,
@@ -778,7 +796,9 @@ class MapartController extends Component {
         <BlockSelection
           getLocaleString={getLocaleString}
           coloursJSON={coloursJSON}
+          disabledTones={disabledTones}
           onChangeColourSetBlock={this.handleChangeColourSetBlock}
+          onToggleColourTone={this.handleToggleColourTone}
           optionValue_version={optionValue_version}
           optionValue_modeNBTOrMapdat={optionValue_modeNBTOrMapdat}
           optionValue_staircasing={optionValue_staircasing}
@@ -799,6 +819,7 @@ class MapartController extends Component {
             getLocaleString={getLocaleString}
             coloursJSON={coloursJSON}
             selectedBlocks={selectedBlocks}
+            disabledTones={disabledTones}
             optionValue_version={optionValue_version}
             optionValue_modeNBTOrMapdat={optionValue_modeNBTOrMapdat}
             optionValue_mapSize_x={optionValue_mapSize_x}

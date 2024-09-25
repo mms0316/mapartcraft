@@ -9,6 +9,7 @@ var ColourMethods;
 var DitherMethods;
 var canvasImageData;
 var selectedBlocks;
+var disabledTones;
 var optionValue_modeNBTOrMapdat;
 var optionValue_mapSize_x;
 var optionValue_mapSize_y;
@@ -343,8 +344,15 @@ function setupColourSetsToUse() {
   for (const colourSetId of colourSetIdsToUse) {
     let tonesRGB = {};
     for (const toneKey of toneKeys) {
+      if (disabledTones[colourSetId].has(toneKey))
+        continue;
+
       tonesRGB[toneKey] = coloursJSON[colourSetId].tonesRGB[toneKey];
     }
+
+    if (Object.keys(tonesRGB).length === 0)
+      continue;
+
     colourSetsToUse.push({
       colourSetId: colourSetId,
       tonesRGB: tonesRGB,
@@ -616,6 +624,7 @@ onmessage = (e) => {
   DitherMethods = e.data.body.DitherMethods;
   canvasImageData = e.data.body.canvasImageData;
   selectedBlocks = e.data.body.selectedBlocks;
+  disabledTones = e.data.body.disabledTones;
   optionValue_modeNBTOrMapdat = e.data.body.optionValue_modeNBTOrMapdat;
   optionValue_mapSize_x = e.data.body.optionValue_mapSize_x;
   optionValue_mapSize_y = e.data.body.optionValue_mapSize_y;
