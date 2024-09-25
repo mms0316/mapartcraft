@@ -103,7 +103,7 @@ class BlockSelection extends Component {
                 }}
               />
             </Tooltip>
-            <Tooltip tooltipText="LIGHT SHADE">
+            <Tooltip tooltipText="BRIGHT SHADE">
               <div
                 className="colourSetBox"
                 onClick={() => onToggleColourTone(colourSetId, "light")}
