@@ -42,7 +42,7 @@ class MapartController extends Component {
     optionValue_transparencyTolerance: 128,
     optionValue_mapdatFilenameUseId: true,
     optionValue_mapdatFilenameIdStart: 0,
-    optionValue_betterColour: ColourMethods.Ciede2000_Lab65.uniqueId,
+    optionValue_betterColour: ColourMethods.Hct.uniqueId,
     optionValue_dithering: DitherMethods.Atkinson.uniqueId,
     optionValue_dithering_propagation_red: 100,
     optionValue_dithering_propagation_green: 100,
