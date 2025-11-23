@@ -439,6 +439,8 @@ function setupColourSetsToUse() {
     for (const toneKey of toneKeys) {
       if (disabledTones[colourSetId].has(toneKey))
         continue;
+      if (coloursJSON[colourSetId].tonesRGB[toneKey] === undefined)
+        continue;
 
       tonesRGB[toneKey] = coloursJSON[colourSetId].tonesRGB[toneKey];
     }

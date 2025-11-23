@@ -15,8 +15,42 @@ class BlockSelection extends Component {
   };
 
   cssRGB(RGBArray) {
+    if (!Array.isArray(RGBArray) || RGBArray.length == 0) return "transparent";
+
     // RGB array to css compatible string
     return `rgb(${RGBArray.join(", ")})`;
+  }
+
+  getCssGradient(tones, properties) {
+    const definedProperties = properties.filter((prop) => tones[prop] !== undefined);
+
+    if (definedProperties.length === 1) {
+      return this.cssRGB(tones[definedProperties[0]]);
+    }
+    else if (definedProperties.length === 2) {
+      return `linear-gradient(
+        ${this.cssRGB(tones[definedProperties[0]])} 50%,
+        ${this.cssRGB(tones[definedProperties[1]])} 50%)`;
+    }
+    else if (definedProperties.length === 3) {
+      return `linear-gradient(
+      ${this.cssRGB(tones[definedProperties[0]])} 33%,
+      ${this.cssRGB(tones[definedProperties[1]])} 33%,
+      ${this.cssRGB(tones[definedProperties[1]])} 66%,
+      ${this.cssRGB(tones[definedProperties[2]])} 66%)`;
+    }
+    else if (definedProperties.length === 4) {
+      return `linear-gradient(
+        ${this.cssRGB(tones[definedProperties[0]])} 25%,
+        ${this.cssRGB(tones[definedProperties[1]])} 25%,
+        ${this.cssRGB(tones[definedProperties[1]])} 50%,
+        ${this.cssRGB(tones[definedProperties[2]])} 50%,
+        ${this.cssRGB(tones[definedProperties[2]])} 75%,
+        ${this.cssRGB(tones[definedProperties[3]])} 75%)`;
+    }
+    else {
+      return "transparent";
+    }
   }
 
   getColourSetBox = (colourSet) => {
@@ -31,15 +65,11 @@ class BlockSelection extends Component {
       case MapModes.SCHEMATIC_NBT.staircaseModes.CLASSIC.uniqueId:
       case MapModes.SCHEMATIC_NBT.staircaseModes.VALLEY.uniqueId:
       case MapModes.MAPDAT.staircaseModes.ON.uniqueId: {
-        background = `linear-gradient(${this.cssRGB(colourSet.tonesRGB.dark)} 33%, ${this.cssRGB(colourSet.tonesRGB.normal)} 33%, ${this.cssRGB(
-          colourSet.tonesRGB.normal
-        )} 66%, ${this.cssRGB(colourSet.tonesRGB.light)} 66%)`;
+        background = this.getCssGradient(colourSet.tonesRGB, ["dark", "normal", "light"]);
         break;
       }
       case MapModes.MAPDAT.staircaseModes.ON_UNOBTAINABLE.uniqueId: {
-        background = `linear-gradient(${this.cssRGB(colourSet.tonesRGB.unobtainable)} 25%, ${this.cssRGB(colourSet.tonesRGB.dark)} 25%, ${this.cssRGB(
-          colourSet.tonesRGB.dark
-        )} 50%, ${this.cssRGB(colourSet.tonesRGB.normal)} 50%, ${this.cssRGB(colourSet.tonesRGB.normal)} 75%, ${this.cssRGB(colourSet.tonesRGB.light)} 75%)`;
+        background = this.getCssGradient(colourSet.tonesRGB, ["unobtainable", "dark", "normal", "light"]);
         break;
       }
       case MapModes.SCHEMATIC_NBT.staircaseModes.FULL_DARK.uniqueId:
