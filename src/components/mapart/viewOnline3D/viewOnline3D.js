@@ -133,6 +133,9 @@ class BlockWorld {
       alphaTest: 0,
       transparent: false,
     });
+
+    this.blockEncoder = new Map();
+    this.blockEncoderNextId = 65; // start after 64 which is reserved for custom / placeholder
   }
 
   startAnimationLoop = () => {
@@ -283,7 +286,8 @@ class BlockWorld {
       return null;
     }
     const blockOffset = this.computeBlockOffset(x, y, z);
-    return chunk.slice(blockOffset, blockOffset + 2);
+    const blockEncoded = chunk.slice(blockOffset, blockOffset + 2);
+    return [this.decodeColourSetId(blockEncoded[0]), blockEncoded[1]];
   }
 
   setBlock(x, y, z, colourSetId, blockId) {
@@ -292,8 +296,47 @@ class BlockWorld {
       chunk = this.addChunkForBlock(x, y, z);
     }
     const blockOffset = this.computeBlockOffset(x, y, z);
-    chunk[blockOffset] = colourSetId;
+    chunk[blockOffset] = this.encodeColourSetId(colourSetId);
     chunk[blockOffset + 1] = blockId;
+  }
+
+
+
+  encodeColourSetId(colourSetId) {
+    // Requires to fit in Uint8 (0 - 255). 0-63 are colourSetIds as normal. 64 is custom / placeholder. 255 is uninitialized.
+    if (typeof(colourSetId) === 'number') {
+      return colourSetId;
+    }
+
+    if (colourSetId.match(/^\d+$/)) {
+      return parseInt(colourSetId);
+    }
+
+    if (this.blockEncoder.get(colourSetId) !== undefined) {
+      return this.blockEncoder.get(colourSetId);
+    }
+
+    const encodedValue = this.blockEncoderNextId;
+    this.blockEncoder.set(colourSetId, encodedValue);
+    this.blockEncoderNextId++;
+    return encodedValue;
+  }
+
+  decodeColourSetId(value) {
+    if (value <= 64) {
+      return value;
+    }
+    if (value >= 255) {
+      return 255;
+    }
+
+    for (const [key, val] of this.blockEncoder.entries()) {
+      if (val === value) {
+        return key;
+      }
+    }
+
+    return 255;
   }
 
   selectBlock() {
@@ -432,8 +475,9 @@ class BlockWorld {
           for (let x = 0; x < chunkSize; x++) {
             const blockX = startX + x;
             const blockOffset = this.computeBlockOffset(x, y, z);
-            const block = chunk.slice(blockOffset, blockOffset + 2);
-            let [colourSetId, blockId] = block;
+            const blockEncoded = chunk.slice(blockOffset, blockOffset + 2);
+            let colourSetId = this.decodeColourSetId(blockEncoded[0]);
+            let blockId = blockEncoded[1];
             if (!(colourSetId === 255 && blockId === 255)) {
               if (!(colourSetId === 64 && blockId === 2)) {
                 // if not placeholder texture then check if custom texture needed
@@ -442,6 +486,7 @@ class BlockWorld {
                   blockId = 5;
                 }
               }
+              colourSetId = parseInt(colourSetId);
               // There is a block here but do we need faces for it?
               for (const { dir, vertices, uvRow } of this.faces) {
                 const neighbor = this.getBlock(blockX + dir[0], blockY + dir[1], blockZ + dir[2]);
@@ -578,7 +623,7 @@ class ViewOnline3D extends Component {
                   return argKey in paletteItem.Properties.value && argValue === paletteItem.Properties.value[argKey].value;
                 })))
           ) {
-            paletteIdToColourSetIdAndBlockId.push([parseInt(colourSetId), parseInt(blockId)]);
+            paletteIdToColourSetIdAndBlockId.push([colourSetId, parseInt(blockId)]);
             paletteItemFound = true;
           }
         }

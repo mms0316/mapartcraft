@@ -469,22 +469,12 @@
         "mapdatId": 11,
         "colourName": "Stone"
     },
-    "10": {
+    "10:0": {
         "tonesRGB": {
-            "depth10": [
+            "normal": [
                 45,
                 45,
                 180
-            ],
-            "depth5": [
-                55,
-                55,
-                220
-            ],
-            "normal": [
-                64,
-                64,
-                255
             ],
             "unobtainable": [
                 33,
@@ -494,6 +484,30 @@
         },
         "blocks": {
             "0": {
+                "displayName": "Water (Ensure 10 blocks high. Use at own risk)",
+                "validVersions": {
+                    "1.19": {
+                        "NBTName": "water",
+                        "NBTArgs": {}
+                    },
+                    "1.20": "&1.19"
+                },
+                "presetIndex": 0
+            }
+        },
+        "mapdatId": 12,
+        "colourName": "Water"
+    },
+    "10:1": {
+        "tonesRGB": {
+            "normal": [
+                64,
+                64,
+                255
+            ]
+        },
+        "blocks": {
+            "1": {
                 "displayName": "Waterlogged Oak Leaves",
                 "validVersions": {
                     "1.19": {
@@ -505,7 +519,7 @@
                     },
                     "1.20": "&1.19"
                 },
-                "presetIndex": 0
+                "presetIndex": 1
             }
         },
         "mapdatId": 12,

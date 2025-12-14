@@ -66,7 +66,7 @@ class ViewOnline2D extends Component {
                   return argKey in paletteItem.Properties.value && argValue === paletteItem.Properties.value[argKey].value;
                 })))
           ) {
-            this.paletteIdToColourSetIdAndBlockId.push([parseInt(colourSetId), parseInt(blockId)]);
+            this.paletteIdToColourSetIdAndBlockId.push([colourSetId, parseInt(blockId)]);
             paletteItemFound = true;
           }
         }
@@ -105,16 +105,16 @@ class ViewOnline2D extends Component {
             continue;
           }
         }
-        const [int_colourSetId, int_blockId] = this.paletteIdToColourSetIdAndBlockId[block_paletteId];
+        const [colourSetId, int_blockId] = this.paletteIdToColourSetIdAndBlockId[block_paletteId];
         let int_colourSetId_toDraw, int_blockId_toDraw;
-        if (!(int_colourSetId === 64 && int_blockId === 2) && coloursJSON[int_colourSetId.toString()].blocks[int_blockId.toString()].presetIndex === "CUSTOM") {
+        if (!(colourSetId === 64 && int_blockId === 2) && coloursJSON[colourSetId].blocks[int_blockId.toString()].presetIndex === "CUSTOM") {
           // if not placeholder, and is a custom block, then draw colour on canvas
           int_colourSetId_toDraw = 64;
           int_blockId_toDraw = 5;
-          canvasRef_viewOnline_ctx.fillStyle = `rgb(${coloursJSON[int_colourSetId.toString()].tonesRGB.normal.join(", ")})`;
+          canvasRef_viewOnline_ctx.fillStyle = `rgb(${coloursJSON[colourSetId].tonesRGB.normal.join(", ")})`;
           canvasRef_viewOnline_ctx.fillRect(33 * block_coords[0], 33 * block_coords[2], 32, 32);
         } else {
-          int_colourSetId_toDraw = int_colourSetId;
+          int_colourSetId_toDraw = parseInt(colourSetId);
           int_blockId_toDraw = int_blockId;
         }
         canvasRef_viewOnline_ctx.drawImage(

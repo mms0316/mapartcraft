@@ -198,9 +198,9 @@ class MapartController extends Component {
     for (const colourSetId of Object.keys(coloursJSON)) {
       selectedBlocks[colourSetId] = "-1";
     }
-    for (const [int_colourSetId, presetIndex] of setsAndBlocks) {
+    for (const [colourSetIdEncoded, presetIndex] of setsAndBlocks) {
       // we store presetIndex in the cookie, not blockId
-      const colourSetId = int_colourSetId.toString();
+      const colourSetId = colourSetIdEncoded.toString();
       if (!(colourSetId in coloursJSON)) {
         continue;
       }
@@ -529,7 +529,8 @@ class MapartController extends Component {
     let newPreset = { name: presetToSave_name, blocks: [] };
     Object.keys(selectedBlocks).forEach((key) => {
       if (selectedBlocks[key] !== "-1" && coloursJSON[key].blocks[selectedBlocks[key]].presetIndex !== "CUSTOM") {
-        newPreset.blocks.push([parseInt(key), parseInt(coloursJSON[key].blocks[selectedBlocks[key]].presetIndex)]);
+        const newKey = key.match("^\\d+$") ? parseInt(key) : key;
+        newPreset.blocks.push([newKey, parseInt(coloursJSON[key].blocks[selectedBlocks[key]].presetIndex)]);
       }
     });
     const presets_new = [...otherPresets, newPreset];
@@ -598,7 +599,7 @@ class MapartController extends Component {
     while ((match = presetRegex.exec(encodedPreset)) !== null) {
       const encodedColourSetId = match[1];
       const encodedBlockId = match[2];
-      const decodedColourSetId = parseInt(encodedColourSetId, 36).toString();
+      let decodedColourSetId = parseInt(encodedColourSetId, 36).toString();
       const decodedPresetIndex = parseInt(
         encodedBlockId
           .replace(/[Q-Z]/g, (match) => {
@@ -619,7 +620,10 @@ class MapartController extends Component {
         26
       );
       if (!(decodedColourSetId in coloursJSON)) {
-        continue;
+        decodedColourSetId = `${decodedColourSetId}:${decodedPresetIndex}`;
+        if (!(decodedColourSetId in coloursJSON)) {
+          continue;
+        }
       }
       const decodedBlock = Object.entries(coloursJSON[decodedColourSetId].blocks).find((elt) => elt[1].presetIndex === decodedPresetIndex);
       if (decodedBlock === undefined) {

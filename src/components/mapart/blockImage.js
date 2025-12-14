@@ -46,7 +46,7 @@ class BlockImage extends Component {
             : {
                 backgroundImage: `url(${IMG_Textures})`,
                 backgroundPositionX: `-${blockId}00%`,
-                backgroundPositionY: `-${colourSetId}00%`,
+                backgroundPositionY: `-${parseInt(colourSetId)}00%`,
                 ...style,
               }
         }
